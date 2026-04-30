@@ -46,7 +46,7 @@ elif category.lower() == "search":
             print("Before input")
             search = input("> ")
             print("After input")
-            show = shows[shows['primaryTitle'].str.contains(search, case=False, na=False)]
+            show = shows[shows['primaryTitle'].str.fcontains(search, case=False, na=False)]
             if not show.empty:
                 director_name = show.iloc[0]['directors']
                 director =  shows[shows['directors'].str.contains(director_name, case=False, na=False)]
